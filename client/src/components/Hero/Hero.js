@@ -8,9 +8,10 @@ const Hero = () => {
 		<HeroSection>
 			<HeroVideo src="./assets/hero.mp4" autoPlay muted />
 			<Container>
-				<MainHeading>Let's meet our neighbours</MainHeading>
+				<MainHeading>Connect with your
+Neighbourhood</MainHeading>
 				<HeroText>
-					through NeighborGood
+					
 				</HeroText>
 				<ButtonWrapper>
 					<Link to="Interest">
