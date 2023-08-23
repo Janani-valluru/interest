@@ -1,11 +1,13 @@
 // src/components/UserForm.js
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 import {
   Button,
   TextField,
   Typography,
-  Container,
+  
   Chip,
   Paper,
   Grid,
@@ -31,6 +33,7 @@ display:flex;
     margin: 0 -15px -15px -15px;
     flex-wrap: wrap;
     align-items: center;
+     padding: 0 -15px -15px -15px;
 `;
 
 
@@ -58,13 +61,7 @@ const FormColumn = styled.div`
   }
 `;
 
-const FormRow = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0 -15px -15px -15px;
-  flex-wrap: wrap;
-  align-items: center;
-`;
+
 
 const FormWrapper = styled.form`
   width: 100%;
@@ -127,6 +124,31 @@ const FormImg = styled.img`
 const CenteredButtonContainer = styled.div`
   text-align: center;
 `;
+const RadioGroupWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+
+
+const BlueButton = styled(Button)`
+  color: white;
+`;
+
+const FormRow = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 0 -15px -15px -15px;
+  flex-wrap: wrap;
+  align-items: center;
+`;
+
+const FormCheckboxGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
 
 const FormButton = styled.button`
   border-radius: 4px;
@@ -151,6 +173,8 @@ const FormButton = styled.button`
   }
 `;
 
+
+
 function UserForm() {
     const [firstname, setFirstName] = useState('');
   const [lastname, setLastName] = useState('');
@@ -159,14 +183,29 @@ function UserForm() {
   const [age, setAge] = useState('');
   const [education, setEducation] = useState('');
   const [location, setLocation] = useState(null);
-  const [interest, setInterest] = useState('');
-  const [interests, setInterests] = useState([]);
+  
   const [walkingSpeed, setWalkingSpeed] = useState('');
   const [runningSpeed, setRunningSpeed] = useState('');
   const [gardeningType, setGardeningType] = useState('');
   const [swimmingLocation, setSwimmingLocation] = useState('');
   const [moviegenre, setMovieGenre] = useState('');
+  const [shopping, setShopping] = useState('');
+  const [dogwalking, setDogWalking] = useState('');
+   const [coffee, setCoffee] = useState([]);
+  const [errands, setErrands] = useState([]);
+  const [rides, setRides] = useState([]);
+  const [childcare, setChildcare] = useState([]);
+  const [eldercare, setEldercare] = useState([]);
+  const [petcare, setPetCare] = useState([]);
+  const [Dinnerparties, setDinnerParties] = useState([]);
+  const [television, setTelevision] = useState([]);
+  const [restaurant, setRestaurants] = useState([]);
+  const [happyhour, setHappyHour] = useState([]);
+  const [arts, setArts] = useState([]);
+  const [repair, setRepairAdvice] = useState([]);
   
+  
+   
   
 
   useEffect(() => {
@@ -185,18 +224,10 @@ function UserForm() {
     }
   }, []);
 
-  const handleAddInterest = () => {
-    if (interest) {
-      setInterests([...interests, interest]);
-      setInterest('');
-    }
-  };
+  
 
-  const handleRemoveInterest = (index) => {
-    const updatedInterests = [...interests];
-    updatedInterests.splice(index, 1);
-    setInterests(updatedInterests);
-  };
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -208,12 +239,24 @@ function UserForm() {
         mobile,
         age,
         education,
-        interests,
+        
         location,
         walkingSpeed,
         runningSpeed,
         swimmingLocation,
         moviegenre,
+        childcare,
+        eldercare,
+        dogwalking,
+        errands,
+        arts,
+        Dinnerparties,
+        television,
+        restaurant,
+        happyhour,
+        coffee,
+        repair,
+        rides,
          // Include location data
       });
       // Reset the form after submission
@@ -224,12 +267,24 @@ function UserForm() {
       setAge('');
       setEducation('');
       setLocation('');
-      setInterests([]);
+      
       setWalkingSpeed('');
       setRunningSpeed('');
       setGardeningType('');
       setSwimmingLocation('');
-      setMovieGenre('')
+      setMovieGenre('');
+      setChildcare('');
+      setDogWalking('');
+      setEldercare('');
+      setErrands('');
+      setDinnerParties('');
+      setHappyHour('');
+      setTelevision('');
+      setRestaurants('');
+      setArts('');
+      setCoffee('');
+      setRepairAdvice('');
+      setRides('');
       
     } catch (error) {
       console.error(error);
@@ -271,7 +326,7 @@ function UserForm() {
             variant="outlined"
             fullWidth
             value={mobile}
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={(e) => setMobile(e.target.value)}
           />
           <TextField
             label="Age"
@@ -289,47 +344,6 @@ function UserForm() {
             onChange={(e) => setEducation(e.target.value)}
             />
             <TextField
-            label="WalkingSpeed"
-            variant="outlined"
-            fullWidth
-            value={walkingSpeed}
-            onChange={(e) => setWalkingSpeed(e.target.value)}
-            />
-            <TextField
-            label="RunningSpeed"
-            variant="outlined"
-            fullWidth
-            value={runningSpeed}
-            onChange={(e) => setRunningSpeed(e.target.value)}
-            />
-
-            <TextField
-            label="SwimmingLocation"
-            variant="outlined"
-            fullWidth
-            value={swimmingLocation}
-            onChange={(e) => setSwimmingLocation(e.target.value)}
-            />
-            <TextField
-            label="GardeningType"
-            variant="outlined"
-            fullWidth
-            value={gardeningType}
-            onChange={(e) => setGardeningType(e.target.value)}
-            />
-             <TextField
-            label="MovieGenre(drama , action, comedy)"
-            variant="outlined"
-            fullWidth
-            value={moviegenre}
-            onChange={(e) => setMovieGenre(e.target.value)}
-            />
-           
-
-
-  {/* ... other form content ... */}
-          <br />
-          <TextField
             label="Latitude"
             variant="outlined"
             fullWidth
@@ -343,43 +357,622 @@ function UserForm() {
             value={location?.longitude || ''}
             disabled
             />
-            <TextField
-            label="Interest"
-            variant="outlined"
-            fullWidth
-            value={interest}
-            onChange={(e) => setInterest(e.target.value)}
-            />
-            <FormButton
-            variant="contained"
-            color="primary"
-            onClick={handleAddInterest}
-          >
-            Add Interest
-          </FormButton>
+           
+            
+            {/*walkingSpeed*/}
+            <RadioGroupWrapper>
+        <FormLabel>Walking Speed</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="Slow"
+            checked={walkingSpeed === 'Slow'}
+            onChange={(e) => setWalkingSpeed(e.target.value)}
+          />
+          Slow
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Moderate"
+            checked={walkingSpeed === 'Moderate'}
+            onChange={(e) => setWalkingSpeed(e.target.value)}
+          />
+          Moderate
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Fast"
+            checked={walkingSpeed === 'Fast'}
+            onChange={(e) => setWalkingSpeed(e.target.value)}
+          />
+          Fast
+        </label>
+            </RadioGroupWrapper>
+
+{/*ruunig*/}
+        <RadioGroupWrapper>
+        <FormLabel>Running Speed</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="Slow"
+            checked={runningSpeed === 'Slow'}
+            onChange={(e) => setRunningSpeed(e.target.value)}
+          />
+          Slow
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Moderate"
+            checked={runningSpeed === 'Moderate'}
+            onChange={(e) => setRunningSpeed(e.target.value)}
+          />
+          Moderate
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Fast"
+            checked={runningSpeed === 'Fast'}
+            onChange={(e) => setRunningSpeed(e.target.value)}
+          />
+          Fast
+        </label>
+            </RadioGroupWrapper>
+
+            
+             
+            {/*gardening*/}
+            <RadioGroupWrapper>
+        <FormLabel> gardeningType</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="Flowers/Landscape "
+            checked={gardeningType=== 'Flowers/Landscape '}
+            onChange={(e) => setGardeningType(e.target.value)}
+          />
+         Flowers/Landscape 
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Fruit/Veg"
+            checked={gardeningType === 'Fruit/Veg'}
+            onChange={(e) => setGardeningType(e.target.value)}
+          />
+         Fruit/Veg
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="both"
+            checked={gardeningType=== 'both'}
+            onChange={(e) => setGardeningType(e.target.value)}
+          />
+         both
+        </label>
+            </RadioGroupWrapper>
+{/*movie*/}
+
+             <RadioGroupWrapper>
+        <FormLabel> moviegenre</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="Action "
+            checked={ moviegenre=== 'Action '}
+            onChange={(e) => setMovieGenre(e.target.value)}
+          />
+       Action
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Romance"
+            checked={ moviegenre === 'Romance'}
+            onChange={(e) => setMovieGenre(e.target.value)}
+          />
+         Romance
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Comedy"
+            checked={ moviegenre=== 'Comedy'}
+            onChange={(e) => setMovieGenre(e.target.value)}
+          />
+        Comedy
+              </label>
+               <label>
+          <input
+            type="radio"
+            value="Other"
+            checked={ moviegenre=== 'Other'}
+            onChange={(e) => setMovieGenre(e.target.value)}
+          />
+       Other
+        </label>
+            </RadioGroupWrapper>
+
+            {/*shopping*/}
+
+            <RadioGroupWrapper>
+        <FormLabel> shopping</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="Groceries "
+            checked={shopping=== 'Groceries '}
+            onChange={(e) => setShopping(e.target.value)}
+          />
+         Groceries
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Clothing "
+            checked={shopping=== 'Clothing '}
+            onChange={(e) => setShopping(e.target.value)}
+          />
+        Clothing 
+        </label>
+        <label>
+          <input
+            type="radio"
+            value=" Books"
+            checked={shopping=== ' Books'}
+            onChange={(e) => setShopping(e.target.value)}
+          />
+         Books
+        </label>
+            </RadioGroupWrapper>
+            
+            {/*swimm*/}
+            
+
+               <RadioGroupWrapper>
+        <FormLabel> swimmingLocation</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="My backyard "
+            checked={swimmingLocation=== 'My backyard '}
+            onChange={(e) => setSwimmingLocation(e.target.value)}
+          />
+         My backyard
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Public pool"
+            checked={swimmingLocation === 'Public pool'}
+            onChange={(e) => setSwimmingLocation(e.target.value)}
+          />
+        Public pool 
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Health club pool"
+            checked={swimmingLocation=== ' Health club pool'}
+            onChange={(e) => setSwimmingLocation(e.target.value)}
+          />
+        Health club pool
+        </label>
+            </RadioGroupWrapper>
+           
+       {/*coffee*/}
+               <RadioGroupWrapper>
+        <FormLabel> coffee</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="  My place"
+            checked={coffee=== 'My place'}
+            onChange={(e) => setCoffee(e.target.value)}
+          />
+        My place
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Your place"
+            checked={coffee === 'Your place'}
+            onChange={(e) =>  setCoffee(e.target.value)}
+          />
+        Your place
+              </label>  
+            </RadioGroupWrapper> 
+            
+            {/*art*/}
+             <RadioGroupWrapper>
+        <FormLabel> arts</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="Drawing "
+            checked={arts=== 'Drawing '}
+            onChange={(e) => setArts(e.target.value)}
+          />
+       Drawing
+        </label>
+        <label>
+          <input
+            type="radio"
+            value=""
+            checked={arts === 'Sketching'}
+            onChange={(e) => setArts(e.target.value)}
+          />
+       Sketching
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Painting"
+            checked={arts=== ' Painting'}
+            onChange={(e) => setArts(e.target.value)}
+          />
+       Painting
+        </label>
+            </RadioGroupWrapper>
+           
+             {/*party*/}
+            <RadioGroupWrapper>
+        <FormLabel> Dinner parties</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="Casual"
+            checked={ Dinnerparties ==='Casual' }
+            onChange={(e) => setDinnerParties(e.target.value)}
+          />
+       Casual
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="LeftOvers Okay"
+            checked={Dinnerparties === 'LeftOvers Okay'}
+            onChange={(e) =>  setDinnerParties(e.target.value)}
+          />
+       LeftOvers Okay
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="no housecleaning"
+            checked={Dinnerparties=== ' no housecleaning'}
+            onChange={(e) =>  setDinnerParties(e.target.value)}
+          />
+      no housecleaning
+        </label>
+            </RadioGroupWrapper>
+
+               {/*Watching televised sports*/}
+            <RadioGroupWrapper>
+        <FormLabel> Watching televised sports</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="Football"
+            checked={ television ==='Football' }          
+            onChange={(e) => setTelevision(e.target.value)}
+          />
+    Football
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Basketball"
+            checked={television  === 'Basketball'}
+            onChange={(e) => setTelevision(e.target.value)}
+          />
+     Basketball
+        </label>
+        <label>
+          <input
+            type="radio"
+            value=" Other"
+            checked={television === '  Other'}
+            onChange={(e) => setTelevision(e.target.value)}
+          />
+       Other
+        </label>
+            </RadioGroupWrapper>
+
+              {/*Restaurants*/}
+            <RadioGroupWrapper>
+        <FormLabel> Restaurants</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="American"
+            checked={ restaurant==='American' }           
+            onChange={(e) => setRestaurants(e.target.value)}
+          />
+   American
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Mexican"
+            checked={restaurant === 'Mexican'}
+            onChange={(e) => setRestaurants(e.target.value)}
+          />
+    Mexican
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Indian"
+            checked={restaurant === '  Indian'}
+            onChange={(e) => setRestaurants(e.target.value)}
+          />
+      Indian
+        </label>
+            </RadioGroupWrapper>
+{/*happy */}
+
+            <RadioGroupWrapper>
+        <FormLabel> Happy Hour</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="Quaterly"
+            checked={ happyhour==='Quaterly' }           
+            onChange={(e) => setHappyHour(e.target.value)}
+          />
+   Quaterly
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Monthly"
+            checked={ happyhour==='Monthly' }
+            onChange={(e) => setHappyHour(e.target.value)}
+          />
+    Monthly
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Weekly"
+            checked={happyhour === 'Weekly'}
+            onChange={(e) => setHappyHour(e.target.value)}
+          />
+      Weekly
+              </label>
+              <label>
+          <input
+            type="radio"
+            value="Outdoor"
+            checked={happyhour === 'Outdoor'}
+            onChange={(e) => setHappyHour(e.target.value)}
+          />
+     Outdoor
+        </label>
+            </RadioGroupWrapper>
+{/*errands*/}
+            <RadioGroupWrapper>
+           <FormLabel>Errands</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="	Emergencies"
+            checked={ errands==='	Emergencies' }           
+            onChange={(e) =>setErrands(e.target.value)}
+          />
+   	Emergencies
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Occasional"
+            checked={  errands==='Occasional ' }
+            onChange={(e) => setErrands(e.target.value)}
+          />
+    Occasional
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Regular/frequent"
+            checked={ errands === 'Regular/frequent'}
+            onChange={(e) => setErrands(e.target.value)}
+          />
+     Regular/frequent
+              </label>
+              
+            </RadioGroupWrapper>
+
+            {/*rides*/}
+            <RadioGroupWrapper>
+           <FormLabel>Rides</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="	Emergencies"
+            checked={ rides==='	Emergencies' }           
+            onChange={(e) => setRides(e.target.value)}
+          />
+   	Emergencies
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Occasional"
+            checked={ rides==='Occasional ' }
+            onChange={(e) => setRides(e.target.value)}
+          />
+    Occasional
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Regular/frequent"
+            checked={rides === 'Regular/frequent'}
+            onChange={(e) => setRides(e.target.value)}
+          />
+     Regular/frequent
+              </label>
+
+            </RadioGroupWrapper>
+            
+            {/*childcare */}
+            
+            <RadioGroupWrapper>
+           <FormLabel>Child care</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="	Emergencies"
+            checked={ childcare==='	Emergencies' }           
+            onChange={(e) => setChildcare(e.target.value)}
+          />
+   	Emergencies
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Occasional"
+            checked={ childcare==='Occasional ' }
+            onChange={(e) => setChildcare(e.target.value)}
+          />
+    Occasional
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Regular/frequent"
+            checked={childcare=== 'Regular/frequent'}
+            onChange={(e) => setChildcare(e.target.value)}
+          />
+     Regular/frequent
+              </label>
+
+            </RadioGroupWrapper>
+            
+             {/*ELder care*/}
+            
+            <RadioGroupWrapper>
+           <FormLabel>Elder care</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="	Emergencies"
+            checked={ eldercare==='	Emergencies' }           
+            onChange={(e) => setEldercare(e.target.value)}
+          />
+   	Emergencies
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Occasional"
+            checked={ eldercare==='Occasional ' }
+            onChange={(e) => setEldercare(e.target.value)}
+          />
+    Occasional
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Regular/frequent"
+            checked={eldercare=== 'Regular/frequent'}
+            onChange={(e) => setEldercare(e.target.value)}
+          />
+     Regular/frequent
+              </label>
+
+             </RadioGroupWrapper>
+           
+           
+
+            {/*petcare*/}
+            
+            <RadioGroupWrapper>
+           <FormLabel>Pet care</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="	Emergencies"
+            checked={ petcare==='	Emergencies' }           
+            onChange={(e) => setPetCare(e.target.value)}
+          />
+   	Emergencies
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Occasional"
+            checked={ petcare==='Occasional ' }
+            onChange={(e) => setPetCare(e.target.value)}
+          />
+    Occasional
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Regular/frequent"
+            checked={petcare=== 'Regular/frequent'}
+            onChange={(e) => setPetCare(e.target.value)}
+          />
+     Regular/frequent
+              </label>
+
+            </RadioGroupWrapper>
+            
+           {/*repair*/}
+            
+            <RadioGroupWrapper>
+           <FormLabel>Repair advice</FormLabel>
+        <label>
+          <input
+            type="radio"
+            value="	Home repair"
+            checked={ repair==='	Home repair' }           
+            onChange={(e) => setRepairAdvice(e.target.value)}
+          />
+   	Home repair
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Auto repair"
+            checked={ repair==='Auto repair ' }
+            onChange={(e) => setRepairAdvice(e.target.value)}
+          />
+   Auto repair
+        </label>
+        
+
+            </RadioGroupWrapper>
+            
+           
+           
+
+
+           
+
+
+  {/* ... other form content ... */}
           <br />
-          <Paper
-            elevation={3}
-            style={{ marginTop: '20px', padding: '10px' }}
-          >
-            <Typography variant="h6">Interests:</Typography>
-            <FormRow>
-              {interests.map((item, index) => (
-                <Grid item key={index}>
-                  <Chip
-                    label={item}
-                    onDelete={() => handleRemoveInterest(index)}
-                  />
-                </Grid>
-              ))}
-            </FormRow>
-          </Paper>
-          {/* ... rest of the form ... */}
-          <br />
+          
+            
+          
           <CenteredButtonContainer>
-  <Button variant="contained" color="primary" type="submit">
-    Submit
-  </Button>
+  <Button>
+					<Link to="profile">
+						
+                  <BlueButton variant="contained" onClick={handleSubmit} >SUBMIT</BlueButton>
+      
+					</Link>
+					
+				</Button>
 </CenteredButtonContainer>
             </FormWrapper>
         </FormColumn>

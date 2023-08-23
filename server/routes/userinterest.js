@@ -9,8 +9,14 @@ router.post('/', async (req, res) => {
     const { firstname,lastname,email,mobile, age, education, interests, location,walkingSpeed,runningSpeed,swimmingLocation,moviegenre,childcare,
         eldercare,
         dogwalking,
-      errands, } = req.body;
-    
+      errands,  arts,
+        Dinnerparties,
+        television,
+        restaurant,
+        happyhour,
+        coffee,
+      repair,
+        rides,} = req.body;
     
     const newUserInterest = new UserInterest({
      firstname,
@@ -28,7 +34,16 @@ router.post('/', async (req, res) => {
         childcare,
         eldercare,
         dogwalking,
-        errands,
+      errands,
+       
+        arts,
+        Dinnerparties,
+        television,
+        restaurant,
+        happyhour,
+        coffee,
+      repair,
+        rides,
     });
     await newUserInterest.save();
     res.json(newUserInterest);

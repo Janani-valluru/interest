@@ -8,7 +8,7 @@ const userInterestSchema = new mongoose.Schema({
         mobile : Number,
   age: Number,
   education: String,
-  interests: [String],
+  
   location: {
     latitude: Number,
     longitude: Number,
@@ -16,7 +16,16 @@ const userInterestSchema = new mongoose.Schema({
   walkingSpeed: String,
         runningSpeed : String,
         swimmingLocation : String,
-        moviegenre: String,
+  moviegenre: String,
+        errands: String,
+        arts:String,
+        Dinnerparties:String,
+        television :String,
+        restaurant: String,
+        happyhour: String,
+        coffee: String,
+  repair: String,
+        rides:String,
 
 });
 
