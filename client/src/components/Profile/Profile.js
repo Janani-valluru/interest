@@ -29,6 +29,7 @@ function UserDetails() {
     const classes = useStyles();
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     // Fetch user data from the server
@@ -50,7 +51,9 @@ function UserDetails() {
   if (!userData) {
     return <Typography>No user data available.</Typography>;
     }
-    const { latitude, longitude } = userData.location;
+  const { location } = userData;
+  const latitude = location ? location.latitude : null;
+  const longitude = location ? location.longitude : null;
 
   return (
     <Container className={classes.container}>

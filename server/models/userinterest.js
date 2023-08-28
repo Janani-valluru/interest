@@ -17,15 +17,16 @@ const userInterestSchema = new mongoose.Schema({
         runningSpeed : String,
         swimmingLocation : String,
   moviegenre: String,
-        errands: String,
-        arts:String,
-        Dinnerparties:String,
-        television :String,
-        restaurant: String,
-        happyhour: String,
-        coffee: String,
-  repair: String,
-        rides:String,
+        
+        errands: [String],  // Define as an array of strings if it's supposed to be an array
+  arts: [String],
+  Dinnerparties: [String],
+  television: [String],
+  restaurant: [String],
+  happyhour: [String],
+  coffee: [String],
+  repair: [String],
+  rides: [String],
 
 });
 

@@ -19,16 +19,17 @@ mongoose.connect('mongodb+srv://jananishetty24:jananishetty24@cluster0.usv8xva.m
   useUnifiedTopology: true,
 });
 
+
 // Use the routes
-app.use('localhost:5000/api/user-details/api/user-data', userInterestRoutes);
-app.use('localhost:5000/api/user-details/api/user-details', userDetailsRoutes);
+app.use('/api/user-data', userInterestRoutes);
+app.use('/api/user-details', userDetailsRoutes);
 // Start the Express server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-app.get('/getuserinterests', (req, res) => {
+app.get('/userinterests', (req, res) => {
   userinterest.find()
   .then()
 })

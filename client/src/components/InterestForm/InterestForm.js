@@ -1,6 +1,7 @@
 // src/components/UserForm.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import axios from 'axios';
 import {
@@ -100,12 +101,6 @@ const FormInput = styled.input`
   font-size: 1rem;
 `;
 
-const FormLabel = styled.label`
-  display: inline-block;
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-  color: #afafaf;
-`;
 
 const FormImgWrapper = styled.div`
   max-width: 555px;
@@ -127,10 +122,33 @@ const CenteredButtonContainer = styled.div`
 const RadioGroupWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: flex-start;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+`;
+const RadioContainer = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 
+const RadioLabel = styled.label`
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 8px;
+`;
+
+
+const RadioButton = styled.input`
+  margin-right: 5px;
+`;
+
+const FormLabel = styled.div`
+  font-size: 18px;
+  margin-bottom: 10px;
+`;
 
 const BlueButton = styled(Button)`
   color: white;
@@ -176,6 +194,7 @@ const FormButton = styled.button`
 
 
 function UserForm() {
+  const history = useHistory()
     const [firstname, setFirstName] = useState('');
   const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -259,6 +278,7 @@ function UserForm() {
         rides,
          // Include location data
       });
+      
       // Reset the form after submission
       setFirstName('');
       setLastName('');
@@ -286,8 +306,9 @@ function UserForm() {
       setRepairAdvice('');
       setRides('');
       
+      history.push('/profile');
     } catch (error) {
-      console.error(error);
+      console.error(error); 
     }
   };
 
@@ -392,36 +413,40 @@ function UserForm() {
             </RadioGroupWrapper>
 
 {/*ruunig*/}
-        <RadioGroupWrapper>
-        <FormLabel>Running Speed</FormLabel>
-        <label>
-          <input
+        <div>
+      <div>Running Speed</div>
+      <RadioContainer>
+        <RadioLabel>
+          <RadioButton
             type="radio"
             value="Slow"
             checked={runningSpeed === 'Slow'}
             onChange={(e) => setRunningSpeed(e.target.value)}
           />
           Slow
-        </label>
-        <label>
-          <input
+        </RadioLabel>
+        <RadioLabel>
+          <RadioButton
             type="radio"
             value="Moderate"
             checked={runningSpeed === 'Moderate'}
             onChange={(e) => setRunningSpeed(e.target.value)}
           />
           Moderate
-        </label>
-        <label>
-          <input
+        </RadioLabel>
+        <RadioLabel>
+          <RadioButton
             type="radio"
             value="Fast"
             checked={runningSpeed === 'Fast'}
             onChange={(e) => setRunningSpeed(e.target.value)}
           />
           Fast
-        </label>
-            </RadioGroupWrapper>
+        </RadioLabel>
+      </RadioContainer>
+            </div>
+            
+            
 
             
              
@@ -535,8 +560,8 @@ function UserForm() {
             
 
                <RadioGroupWrapper>
-        <FormLabel> swimmingLocation</FormLabel>
-        <label>
+        <label> swimmingLocation
+        
           <input
             type="radio"
             value="My backyard "
@@ -963,17 +988,25 @@ function UserForm() {
           <br />
           
             
-          
-          <CenteredButtonContainer>
-  <Button>
-					<Link to="profile">
-						
-                  <BlueButton variant="contained" onClick={handleSubmit} >SUBMIT</BlueButton>
-      
-					</Link>
-					
-				</Button>
-</CenteredButtonContainer>
+            
+            
+
+            
+            
+
+            
+
+            
+            
+       <Button 
+       onClick={handleSubmit}
+      variant="contained"
+      color="primary"
+      component={Link} // Use the Link component
+      to ="/profile"// Specify the target URL
+    >
+     submit
+    </Button>
             </FormWrapper>
         </FormColumn>
       </FormContainer>
