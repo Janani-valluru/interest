@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 const userInterestSchema = new mongoose.Schema({
+      
   firstname: String,
         lastname : String,
         email : String,

@@ -56,93 +56,106 @@ function UserDetails() {
   const longitude = location ? location.longitude : null;
 
   return (
+
+
+    
     <Container className={classes.container}>
       <Typography variant="h4" align='center'>Profile</Typography>
       <Card className={classes.card}>
         <CardContent>
-        <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-        <Typography variant="subtitle1">First Name: {userData.firstname}</Typography>
-        </Grid>
-        
-        <Grid item xs={12} md={6}>
-                              <Typography variant="subtitle1">Last Name: {userData.lastname}</Typography>
-                          </Grid>
+          {loading ? (
+            <CircularProgress />
+          ) : userData ? (
             
-        <Grid item xs={12} md={6}>              
-                          <Typography variant="subtitle1" >Email: {userData.email}</Typography>
-                      </Grid>
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">First Name: {userData.firstname}</Typography>
+                </Grid>
+        
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">Last Name: {userData.lastname}</Typography>
+                </Grid>
+            
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1" >Email: {userData.email}</Typography>
+                </Grid>
                               
-        <Grid item xs={12} md={6}>
-                          <Typography variant="subtitle1">Mobile: {userData.mobile}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">Mobile: {userData.mobile}</Typography>
+                </Grid>
                                  
-        <Grid item xs={12} md={6}>
-                          <Typography variant="subtitle1">Age: {userData.age}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">Age: {userData.age}</Typography>
+                </Grid>
                                     
-        <Grid item xs={12} md={6}>
-                          <Typography variant="subtitle1">Education: {userData.education}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">Education: {userData.education}</Typography>
+                </Grid>
                                           
-        <Grid item xs={12} md={6}>
-                          <Typography variant="subtitle1">Latitude: {latitude}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">Latitude: {latitude}</Typography>
+                </Grid>
                                              
-        <Grid item xs={12} md={6}>
-                          <Typography variant="subtitle1">Longitude: {longitude}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">Longitude: {longitude}</Typography>
+                </Grid>
                                                   
 
                                                      
-        <Grid item xs={12} md={6}>
-                          <Typography variant="subtitle1">Walking Speed: {userData.walkingSpeed}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">Walking Speed: {userData.walkingSpeed}</Typography>
+                </Grid>
                                                           
-        <Grid item xs={12} md={6}>
-                          <Typography variant="subtitle1">Running Speed: {userData.runningSpeed}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">Running Speed: {userData.runningSpeed}</Typography>
+                </Grid>
                                                               
-        <Grid item xs={12} md={6}>
-                          <Typography variant="subtitle1">Swimming Location: {userData.swimmingLocation}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="subtitle1">Swimming Location: {userData.swimmingLocation}</Typography>
+                </Grid>
                                                                   
-        <Grid item xs={12} md={6}>
-                      <Typography>Movie Genre: {userData.moviegenre}</Typography>
-                  </Grid>
-                   <Grid item xs={12} md={6}>
-                          <Typography>Child Care: {userData.childcare}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Movie Genre: {userData.moviegenre}</Typography>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Child Care: {userData.childcare}</Typography>
+                </Grid>
               
-               <Grid item xs={12} md={6}>
-                      <Typography>Elder Care: {userData.eldercare}</Typography></Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Elder Care: {userData.eldercare}</Typography></Grid>
                      
-                       <Grid item xs={12} md={6}>
-                          <Typography>Errands: {userData.errands}</Typography>
-                      </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Errands: {userData.errands}</Typography>
+                </Grid>
         
-       <Grid item xs={12} md={6}>
-                          <Typography>Arts: {userData.arts}</Typography>
-                      </Grid>
-                  <Grid item xs={12} md={6}>
-                      <Typography>Dinner Parties: {userData.dinnerParties}</Typography></Grid>
-                  <Grid item xs={12} md={6}>
-                      <Typography>Televison: {userData.television}</Typography></Grid>
-                  <Grid item xs={12} md={6}>
-                      <Typography>Restaurants: {userData.restaurants}</Typography></Grid>
-                  <Grid item xs={12} md={6}>
-                      <Typography>Happy Hour: {userData.happyhour}</Typography></Grid>
-                  <Grid item xs={12} md={6}>
-                      <Typography>Coffee: {userData.coffee}</Typography></Grid>
-                      <Grid item xs={12} md={6}>
-                      <Typography>Repair: {userData.repair}</Typography></Grid>
-                        <Grid item xs={12} md={6}>
-                          <Typography>Rides: {userData.rides}</Typography></Grid>  
-                      </Grid>
-                      
-        </CardContent>
+                <Grid item xs={12} md={6}>
+                  <Typography>Arts: {userData.arts}</Typography>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Dinner Parties: {userData.dinnerParties}</Typography></Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Televison: {userData.television}</Typography></Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Restaurants: {userData.restaurants}</Typography></Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Happy Hour: {userData.happyhour}</Typography></Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Coffee: {userData.coffee}</Typography></Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Repair: {userData.repair}</Typography></Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography>Rides: {userData.rides}</Typography></Grid>
+              </Grid>
+              ) : (
+            <Typography>No user data available.</Typography>
+            
+          )};
+
+          </CardContent>
+        
       </Card>
     </Container>
+    
   );
 }
 

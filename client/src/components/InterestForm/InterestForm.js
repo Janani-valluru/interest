@@ -45,7 +45,7 @@ const FormColumn = styled.div`
   flex: 1;
   max-width: 60%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 20px;
   flex-direction: column;
@@ -68,68 +68,25 @@ const FormWrapper = styled.form`
   width: 100%;
 `;
 
-const FormMessage = styled.div`
-  color: ${({ error }) => (error ? 'red' : 'green')};
-  padding: 5px;
-  text-align: center;
-  margin-top: 1rem;
-`;
-
-const FormInputRow = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: stretch;
-  margin-bottom: 1.4rem;
-
-  > p {
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-    color: #f00e0e;
-  }
-`;
-
-const FormInput = styled.input`
-  display: block;
-  padding-left: 10px;
-  outline: none;
-  border-radius: 2px;
-  height: 40px;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #cfcfcf;
-  font-size: 1rem;
-`;
 
 
-const FormImgWrapper = styled.div`
-  max-width: 555px;
-  display: flex;
-  justify-content: ${({ start }) => (start ? 'flex-start' : 'flex-end')};
-`;
 
-const FormImg = styled.img`
-  padding-right: 0;
-  border: 0;
-  max-width: 100%;
-  vertical-align: middle;
-  display: inline-block;
-  max-height: 500px;
-`;
-const CenteredButtonContainer = styled.div`
-  text-align: center;
-`;
+
+
+
 const RadioGroupWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
+  justify-content: flex-start;
 `;
 const RadioContainer = styled.div`
   display: flex;
   gap: 10px;
+  justify-content: flex-start;
 `;
 
 
@@ -138,58 +95,24 @@ const RadioLabel = styled.label`
   align-items: center;
   font-size: 16px;
   margin-bottom: 8px;
+  justify-content: flex-start;
 `;
 
 
 const RadioButton = styled.input`
-  margin-right: 5px;
+  margin-left: 5px;
+  justify-content:flex-start;
 `;
 
 const FormLabel = styled.div`
   font-size: 18px;
   margin-bottom: 10px;
+  justify-content: flex-start;
 `;
 
-const BlueButton = styled(Button)`
-  color: white;
-`;
 
-const FormRow = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0 -15px -15px -15px;
-  flex-wrap: wrap;
-  align-items: center;
-`;
 
-const FormCheckboxGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
 
-const FormButton = styled.button`
-  border-radius: 4px;
-    background: none;
-    margin-top: 1.5rem;
-    white-space: nowrap;
-    outline: none;
-    width: 100%;
-    font-size: 1.4rem;
-    padding: 5px 15px;
-    border: 2px solid black;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    text-align:center;
-  
-
-  &:hover {
-    color: white;
-    transition: background-color 0.4s ease-in;
-    background-color: black;
-  }
-`;
 
 
 
@@ -320,100 +243,142 @@ function UserForm() {
         <FormColumn>
           {/* ... form content ... */}
           <FormTitle>Interest Form</FormTitle>
- <FormWrapper onSubmit={handleSubmit}>
-          <TextField
-            label="FirstName"
-            variant="outlined"
-            fullWidth
-            value={firstname}
-            onChange={(e) => setFirstName(e.target.value)}
-            />
-            <TextField
-            label="LastName"
-            variant="outlined"
-            fullWidth
-            value={lastname}
-            onChange={(e) => setLastName(e.target.value)}
-            />
-            <TextField
-            label="Email"
-            variant="outlined"
-            fullWidth
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-            label="Mobile"
-            variant="outlined"
-            fullWidth
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
-          />
-          <TextField
-            label="Age"
-            variant="outlined"
-            fullWidth
-            type="number"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          />
-          <TextField
-            label="Education"
-            variant="outlined"
-            fullWidth
-            value={education}
-            onChange={(e) => setEducation(e.target.value)}
-            />
-            <TextField
-            label="Latitude"
-            variant="outlined"
-            fullWidth
-            value={location?.latitude || ''}
-            disabled
-          />
-          <TextField
-            label="Longitude"
-            variant="outlined"
-            fullWidth
-            value={location?.longitude || ''}
-            disabled
-            />
+          <FormWrapper onSubmit={handleSubmit}>
+            
+       
+              
+  <form className="basic-form" autoComplete="off">
+        <label htmlFor="name">FirstName</label>
+        <input
+          id="name"
+          type="text"
+          placeholder="Enter your name"
+          value={firstname}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+            </form>
+            
+             
+      <form className="basic-form" autoComplete="off">
+        <label htmlFor="lastname">Last Name</label>
+        <input
+          id="lastname"
+          type="text"
+          placeholder="Enter your last name"
+          value={lastname}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+      </form>
+      
+            
+    
+          <form className="basic-form" autoComplete="off">
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+            </form>
+
+
+
+            
+
+            <form className="basic-form" autoComplete="off">
+        <label htmlFor="mobile">Mobile</label>
+        <input
+          id="mobile"
+          type="tel"
+          placeholder="Enter your mobile number"
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
+        />
+      </form>
+      <form className="basic-form" autoComplete="off">
+        <label htmlFor="age">Age</label>
+        <input
+          id="age"
+          type="number"
+          placeholder="Enter your age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+      </form>
+      <form className="basic-form" autoComplete="off">
+        <label htmlFor="education">Education</label>
+        <input
+          id="education"
+          type="text"
+          placeholder="Enter your education level"
+          value={education}
+          onChange={(e) => setEducation(e.target.value)}
+        />
+      </form>
+           
+<form className="basic-form" autoComplete="off">
+        <label htmlFor="latitude">Latitude</label>
+        <input
+          id="latitude"
+          type="text"
+          
+          value={location?.latitude || ''}
+          disabled
+        />
+            </form>
+            <form className="basic-form" autoComplete="off">
+        <label htmlFor="longitude">Latitude</label>
+        <input
+          id="longitude"
+          type="text"
+           value={location?.longitude || ''}
+        
+          disabled
+        />
+            </form>
+           
            
             
             {/*walkingSpeed*/}
-            <RadioGroupWrapper>
-        <FormLabel>Walking Speed</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="Slow"
-            checked={walkingSpeed === 'Slow'}
-            onChange={(e) => setWalkingSpeed(e.target.value)}
-          />
+          <RadioGroupWrapper>
+            <div>Walking Speed</div>
+             
+    <RadioContainer>
+      <RadioLabel>
+        <RadioButton
+          type="radio"
+          value="Slow"
+          checked={walkingSpeed === 'Slow'}
+          onChange={(e) => setWalkingSpeed(e.target.value)}
+        />
           Slow
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Moderate"
-            checked={walkingSpeed === 'Moderate'}
-            onChange={(e) => setWalkingSpeed(e.target.value)}
-          />
-          Moderate
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Fast"
-            checked={walkingSpeed === 'Fast'}
-            onChange={(e) => setWalkingSpeed(e.target.value)}
-          />
-          Fast
-        </label>
-            </RadioGroupWrapper>
-
+</RadioLabel>
+                
+      <RadioLabel>
+        <RadioButton
+          type="radio"
+          value="Moderate"
+          checked={walkingSpeed === 'Moderate'}
+          onChange={(e) => setWalkingSpeed(e.target.value)}
+        />
+        Moderate
+      </RadioLabel>
+      <RadioLabel>
+        <RadioButton
+          type="radio"
+          value="Fast"
+          checked={walkingSpeed === 'Fast'}
+          onChange={(e) => setWalkingSpeed(e.target.value)}
+        />
+        Fast
+      </RadioLabel>
+    </RadioContainer>
+  </RadioGroupWrapper>
 {/*ruunig*/}
-        <div>
+            <div>
+          <RadioGroupWrapper>    
       <div>Running Speed</div>
       <RadioContainer>
         <RadioLabel>
@@ -443,7 +408,8 @@ function UserForm() {
           />
           Fast
         </RadioLabel>
-      </RadioContainer>
+                </RadioContainer>
+                </RadioGroupWrapper>
             </div>
             
             
@@ -451,263 +417,285 @@ function UserForm() {
             
              
             {/*gardening*/}
-            <RadioGroupWrapper>
-        <FormLabel> gardeningType</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="Flowers/Landscape "
-            checked={gardeningType=== 'Flowers/Landscape '}
-            onChange={(e) => setGardeningType(e.target.value)}
-          />
-         Flowers/Landscape 
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Fruit/Veg"
-            checked={gardeningType === 'Fruit/Veg'}
-            onChange={(e) => setGardeningType(e.target.value)}
-          />
-         Fruit/Veg
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="both"
-            checked={gardeningType=== 'both'}
-            onChange={(e) => setGardeningType(e.target.value)}
-          />
-         both
-        </label>
-            </RadioGroupWrapper>
+         <RadioGroupWrapper>
+  <div>gardeningType</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Flowers/Landscape"
+        checked={gardeningType === 'Flowers/Landscape'}
+        onChange={(e) => setGardeningType(e.target.value)}
+      />
+      Flowers/Landscape
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Fruit/Veg"
+        checked={gardeningType === 'Fruit/Veg'}
+        onChange={(e) => setGardeningType(e.target.value)}
+      />
+      Fruit/Veg
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="both"
+        checked={gardeningType === 'both'}
+        onChange={(e) => setGardeningType(e.target.value)}
+      />
+      both
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
+
 {/*movie*/}
 
-             <RadioGroupWrapper>
-        <FormLabel> moviegenre</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="Action "
-            checked={ moviegenre=== 'Action '}
-            onChange={(e) => setMovieGenre(e.target.value)}
-          />
-       Action
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Romance"
-            checked={ moviegenre === 'Romance'}
-            onChange={(e) => setMovieGenre(e.target.value)}
-          />
-         Romance
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Comedy"
-            checked={ moviegenre=== 'Comedy'}
-            onChange={(e) => setMovieGenre(e.target.value)}
-          />
-        Comedy
-              </label>
-               <label>
-          <input
-            type="radio"
-            value="Other"
-            checked={ moviegenre=== 'Other'}
-            onChange={(e) => setMovieGenre(e.target.value)}
-          />
-       Other
-        </label>
-            </RadioGroupWrapper>
+            <RadioGroupWrapper>
+  <div>moviegenre</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Action"
+        checked={moviegenre === 'Action'}
+        onChange={(e) => setMovieGenre(e.target.value)}
+      />
+      Action
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Romance"
+        checked={moviegenre === 'Romance'}
+        onChange={(e) => setMovieGenre(e.target.value)}
+      />
+      Romance
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Comedy"
+        checked={moviegenre === 'Comedy'}
+        onChange={(e) => setMovieGenre(e.target.value)}
+      />
+      Comedy
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Other"
+        checked={moviegenre === 'Other'}
+        onChange={(e) => setMovieGenre(e.target.value)}
+      />
+      Other
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
+
 
             {/*shopping*/}
 
             <RadioGroupWrapper>
-        <FormLabel> shopping</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="Groceries "
-            checked={shopping=== 'Groceries '}
-            onChange={(e) => setShopping(e.target.value)}
-          />
-         Groceries
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Clothing "
-            checked={shopping=== 'Clothing '}
-            onChange={(e) => setShopping(e.target.value)}
-          />
-        Clothing 
-        </label>
-        <label>
-          <input
-            type="radio"
-            value=" Books"
-            checked={shopping=== ' Books'}
-            onChange={(e) => setShopping(e.target.value)}
-          />
-         Books
-        </label>
-            </RadioGroupWrapper>
+  <div>shopping</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Groceries"
+        checked={shopping === 'Groceries'}
+        onChange={(e) => setShopping(e.target.value)}
+      />
+      Groceries
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Clothing"
+        checked={shopping === 'Clothing'}
+        onChange={(e) => setShopping(e.target.value)}
+      />
+      Clothing
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Books"
+        checked={shopping === 'Books'}
+        onChange={(e) => setShopping(e.target.value)}
+      />
+      Books
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
+
             
             {/*swimm*/}
             
+<RadioGroupWrapper>
+  <div>swimmingLocation</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="My backyard"
+        checked={swimmingLocation === 'My backyard'}
+        onChange={(e) => setSwimmingLocation(e.target.value)}
+      />
+      My backyard
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Public pool"
+        checked={swimmingLocation === 'Public pool'}
+        onChange={(e) => setSwimmingLocation(e.target.value)}
+      />
+      Public pool
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Health club pool"
+        checked={swimmingLocation === 'Health club pool'}
+        onChange={(e) => setSwimmingLocation(e.target.value)}
+      />
+      Health club pool
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
 
-               <RadioGroupWrapper>
-        <label> swimmingLocation
-        
-          <input
-            type="radio"
-            value="My backyard "
-            checked={swimmingLocation=== 'My backyard '}
-            onChange={(e) => setSwimmingLocation(e.target.value)}
-          />
-         My backyard
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Public pool"
-            checked={swimmingLocation === 'Public pool'}
-            onChange={(e) => setSwimmingLocation(e.target.value)}
-          />
-        Public pool 
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Health club pool"
-            checked={swimmingLocation=== ' Health club pool'}
-            onChange={(e) => setSwimmingLocation(e.target.value)}
-          />
-        Health club pool
-        </label>
-            </RadioGroupWrapper>
-           
        {/*coffee*/}
-               <RadioGroupWrapper>
-        <FormLabel> coffee</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="  My place"
-            checked={coffee=== 'My place'}
-            onChange={(e) => setCoffee(e.target.value)}
-          />
-        My place
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Your place"
-            checked={coffee === 'Your place'}
-            onChange={(e) =>  setCoffee(e.target.value)}
-          />
-        Your place
-              </label>  
-            </RadioGroupWrapper> 
+              <RadioGroupWrapper>
+  <div>coffee</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="My place"
+        checked={coffee === 'My place'}
+        onChange={(e) => setCoffee(e.target.value)}
+      />
+      My place
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Your place"
+        checked={coffee === 'Your place'}
+        onChange={(e) => setCoffee(e.target.value)}
+      />
+      Your place
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
+
             
             {/*art*/}
              <RadioGroupWrapper>
-        <FormLabel> arts</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="Drawing "
-            checked={arts=== 'Drawing '}
-            onChange={(e) => setArts(e.target.value)}
-          />
-       Drawing
-        </label>
-        <label>
-          <input
-            type="radio"
-            value=""
-            checked={arts === 'Sketching'}
-            onChange={(e) => setArts(e.target.value)}
-          />
-       Sketching
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Painting"
-            checked={arts=== ' Painting'}
-            onChange={(e) => setArts(e.target.value)}
-          />
-       Painting
-        </label>
-            </RadioGroupWrapper>
+  <div>arts</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Drawing"
+        checked={arts === 'Drawing'}
+        onChange={(e) => setArts(e.target.value)}
+      />
+      Drawing
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Sketching"
+        checked={arts === 'Sketching'}
+        onChange={(e) => setArts(e.target.value)}
+      />
+      Sketching
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Painting"
+        checked={arts === 'Painting'}
+        onChange={(e) => setArts(e.target.value)}
+      />
+      Painting
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
+
            
              {/*party*/}
-            <RadioGroupWrapper>
-        <FormLabel> Dinner parties</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="Casual"
-            checked={ Dinnerparties ==='Casual' }
-            onChange={(e) => setDinnerParties(e.target.value)}
-          />
-       Casual
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="LeftOvers Okay"
-            checked={Dinnerparties === 'LeftOvers Okay'}
-            onChange={(e) =>  setDinnerParties(e.target.value)}
-          />
-       LeftOvers Okay
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="no housecleaning"
-            checked={Dinnerparties=== ' no housecleaning'}
-            onChange={(e) =>  setDinnerParties(e.target.value)}
-          />
-      no housecleaning
-        </label>
-            </RadioGroupWrapper>
+           <RadioGroupWrapper>
+  <div>Dinner parties</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Casual"
+        checked={Dinnerparties === 'Casual'}
+        onChange={(e) => setDinnerParties(e.target.value)}
+      />
+      Casual
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="LeftOvers Okay"
+        checked={Dinnerparties === 'LeftOvers Okay'}
+        onChange={(e) => setDinnerParties(e.target.value)}
+      />
+      LeftOvers Okay
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="no housecleaning"
+        checked={Dinnerparties === 'no housecleaning'}
+        onChange={(e) => setDinnerParties(e.target.value)}
+      />
+      No housecleaning
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
+
 
                {/*Watching televised sports*/}
-            <RadioGroupWrapper>
-        <FormLabel> Watching televised sports</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="Football"
-            checked={ television ==='Football' }          
-            onChange={(e) => setTelevision(e.target.value)}
-          />
-    Football
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Basketball"
-            checked={television  === 'Basketball'}
-            onChange={(e) => setTelevision(e.target.value)}
-          />
-     Basketball
-        </label>
-        <label>
-          <input
-            type="radio"
-            value=" Other"
-            checked={television === '  Other'}
-            onChange={(e) => setTelevision(e.target.value)}
-          />
-       Other
-        </label>
-            </RadioGroupWrapper>
+           <RadioGroupWrapper>
+  <div>Watching televised sports</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Football"
+        checked={television === 'Football'}
+        onChange={(e) => setTelevision(e.target.value)}
+      />
+      Football
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Basketball"
+        checked={television === 'Basketball'}
+        onChange={(e) => setTelevision(e.target.value)}
+      />
+      Basketball
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Other"
+        checked={television === 'Other'}
+        onChange={(e) => setTelevision(e.target.value)}
+      />
+      Other
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
+
 
               {/*Restaurants*/}
             <RadioGroupWrapper>
@@ -978,27 +966,11 @@ function UserForm() {
             </RadioGroupWrapper>
             
            
-           
-
-
-           
-
-
-  {/* ... other form content ... */}
+           {/* ... other form content ... */}
           <br />
           
             
-            
-            
-
-            
-            
-
-            
-
-            
-            
-       <Button 
+    <Button 
        onClick={handleSubmit}
       variant="contained"
       color="primary"

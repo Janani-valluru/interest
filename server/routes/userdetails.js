@@ -20,7 +20,11 @@ router.get('/', async (req, res) => {
       runningSpeed: 1,
       swimmingLocation: 1,
       moviegenre: 1
-    });
+    })
+
+     .sort({ _id: -1 }) // Sort by _id in descending order (most recent first)
+      .exec();
+    
     if (!userData) {
       return res.status(404).json({ error: 'User details not found' });
     }
