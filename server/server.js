@@ -23,31 +23,6 @@ mongoose.connect('mongodb+srv://jananishetty24:jananishetty24@cluster0.usv8xva.m
 });
 
 
-app.post('/user-data', async (req, res) => {
-  const FormData = req.body;
-  try {
-    const savedFormData = await FormData.create(FormData);
-    res.status(201).json(savedFormData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-app.get('/profile/:profileName', async (req, res) => {
-  const profileName = req.params.profileName;
-  try {
-    const formData = await FormData.findOne({ profileName });
-    if (formData) {
-      res.json(formData);
-    } else {
-      res.status(404).json({ error: 'Profile not found' });
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
 
 
 // Use the routes

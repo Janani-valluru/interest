@@ -122,7 +122,7 @@ function UserDetails() {
                 </Grid>
               
                 <Grid item xs={12} md={6}>
-                  <Typography>Elder Care: {userData.eldercare}</Typography></Grid>
+                  <Typography>ElderCare: {userData.eldercare}</Typography></Grid>
                      
                 <Grid item xs={12} md={6}>
                   <Typography>Errands: {userData.errands}</Typography>
@@ -132,7 +132,7 @@ function UserDetails() {
                   <Typography>Arts: {userData.arts}</Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <Typography>Dinner Parties: {userData.dinnerParties}</Typography></Grid>
+                  <Typography  variant="subtitle1">Dinner Parties: {userData.dinnerParties}</Typography></Grid>
                 <Grid item xs={12} md={6}>
                   <Typography>Televison: {userData.television}</Typography></Grid>
                 <Grid item xs={12} md={6}>
@@ -149,7 +149,7 @@ function UserDetails() {
               ) : (
             <Typography>No user data available.</Typography>
             
-          )};
+          )}
 
           </CardContent>
         

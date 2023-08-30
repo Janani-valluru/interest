@@ -698,287 +698,301 @@ function UserForm() {
 
 
               {/*Restaurants*/}
-            <RadioGroupWrapper>
-        <FormLabel> Restaurants</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="American"
-            checked={ restaurant==='American' }           
-            onChange={(e) => setRestaurants(e.target.value)}
-          />
-   American
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Mexican"
-            checked={restaurant === 'Mexican'}
-            onChange={(e) => setRestaurants(e.target.value)}
-          />
-    Mexican
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Indian"
-            checked={restaurant === '  Indian'}
-            onChange={(e) => setRestaurants(e.target.value)}
-          />
+           <RadioGroupWrapper>
+  <div>Restaurants</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="American"
+        checked={restaurant === 'American'}
+        onChange={(e) => setRestaurants(e.target.value)}
+      />
+      American
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Mexican"
+        checked={restaurant === 'Mexican'}
+        onChange={(e) => setRestaurants(e.target.value)}
+      />
+      Mexican
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Indian"
+        checked={restaurant === 'Indian'}
+        onChange={(e) => setRestaurants(e.target.value)}
+      />
       Indian
-        </label>
-            </RadioGroupWrapper>
-{/*happy */}
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
 
-            <RadioGroupWrapper>
-        <FormLabel> Happy Hour</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="Quaterly"
-            checked={ happyhour==='Quaterly' }           
-            onChange={(e) => setHappyHour(e.target.value)}
-          />
-   Quaterly
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Monthly"
-            checked={ happyhour==='Monthly' }
-            onChange={(e) => setHappyHour(e.target.value)}
-          />
-    Monthly
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Weekly"
-            checked={happyhour === 'Weekly'}
-            onChange={(e) => setHappyHour(e.target.value)}
-          />
+{/*happy */}
+<RadioGroupWrapper>
+  <div>Happy Hour</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Quaterly"
+        checked={happyhour === 'Quaterly'}
+        onChange={(e) => setHappyHour(e.target.value)}
+      />
+      Quaterly
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Monthly"
+        checked={happyhour === 'Monthly'}
+        onChange={(e) => setHappyHour(e.target.value)}
+      />
+      Monthly
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Weekly"
+        checked={happyhour === 'Weekly'}
+        onChange={(e) => setHappyHour(e.target.value)}
+      />
       Weekly
-              </label>
-              <label>
-          <input
-            type="radio"
-            value="Outdoor"
-            checked={happyhour === 'Outdoor'}
-            onChange={(e) => setHappyHour(e.target.value)}
-          />
-     Outdoor
-        </label>
-            </RadioGroupWrapper>
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Outdoor"
+        checked={happyhour === 'Outdoor'}
+        onChange={(e) => setHappyHour(e.target.value)}
+      />
+      Outdoor
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
+
 {/*errands*/}
-            <RadioGroupWrapper>
-           <FormLabel>Errands</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="	Emergencies"
-            checked={ errands==='	Emergencies' }           
-            onChange={(e) =>setErrands(e.target.value)}
-          />
-   	Emergencies
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Occasional"
-            checked={  errands==='Occasional ' }
-            onChange={(e) => setErrands(e.target.value)}
-          />
-    Occasional
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Regular/frequent"
-            checked={ errands === 'Regular/frequent'}
-            onChange={(e) => setErrands(e.target.value)}
-          />
-     Regular/frequent
-              </label>
-              
-            </RadioGroupWrapper>
+          <RadioGroupWrapper>
+  <div>Errands</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Emergencies"
+        checked={errands === 'Emergencies'}
+        onChange={(e) => setErrands(e.target.value)}
+      />
+      Emergencies
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Occasional"
+        checked={errands === 'Occasional'}
+        onChange={(e) => setErrands(e.target.value)}
+      />
+      Occasional
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Regular/frequent"
+        checked={errands === 'Regular/frequent'}
+        onChange={(e) => setErrands(e.target.value)}
+      />
+      Regular/frequent
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
 
             {/*rides*/}
-            <RadioGroupWrapper>
-           <FormLabel>Rides</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="	Emergencies"
-            checked={ rides==='	Emergencies' }           
-            onChange={(e) => setRides(e.target.value)}
-          />
-   	Emergencies
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Occasional"
-            checked={ rides==='Occasional ' }
-            onChange={(e) => setRides(e.target.value)}
-          />
-    Occasional
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Regular/frequent"
-            checked={rides === 'Regular/frequent'}
-            onChange={(e) => setRides(e.target.value)}
-          />
-     Regular/frequent
-              </label>
+           <RadioGroupWrapper>
+  <div>Rides</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Emergencies"
+        checked={rides === 'Emergencies'}
+        onChange={(e) => setRides(e.target.value)}
+      />
+      Emergencies
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Occasional"
+        checked={rides === 'Occasional'}
+        onChange={(e) => setRides(e.target.value)}
+      />
+      Occasional
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Regular/frequent"
+        checked={rides === 'Regular/frequent'}
+        onChange={(e) => setRides(e.target.value)}
+      />
+      Regular/frequent
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
 
-            </RadioGroupWrapper>
-            
             {/*childcare */}
             
             <RadioGroupWrapper>
-           <FormLabel>Child care</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="	Emergencies"
-            checked={ childcare==='	Emergencies' }           
-            onChange={(e) => setChildcare(e.target.value)}
-          />
-   	Emergencies
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Occasional"
-            checked={ childcare==='Occasional ' }
-            onChange={(e) => setChildcare(e.target.value)}
-          />
-    Occasional
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Regular/frequent"
-            checked={childcare=== 'Regular/frequent'}
-            onChange={(e) => setChildcare(e.target.value)}
-          />
-     Regular/frequent
-              </label>
+  <div>Child care</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Emergencies"
+        checked={childcare === 'Emergencies'}
+        onChange={(e) => setChildcare(e.target.value)}
+      />
+      Emergencies
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Occasional"
+        checked={childcare === 'Occasional'}
+        onChange={(e) => setChildcare(e.target.value)}
+      />
+      Occasional
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Regular/frequent"
+        checked={childcare === 'Regular/frequent'}
+        onChange={(e) => setChildcare(e.target.value)}
+      />
+      Regular/frequent
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
 
-            </RadioGroupWrapper>
             
              {/*ELder care*/}
             
             <RadioGroupWrapper>
-           <FormLabel>Elder care</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="	Emergencies"
-            checked={ eldercare==='	Emergencies' }           
-            onChange={(e) => setEldercare(e.target.value)}
-          />
-   	Emergencies
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Occasional"
-            checked={ eldercare==='Occasional ' }
-            onChange={(e) => setEldercare(e.target.value)}
-          />
-    Occasional
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Regular/frequent"
-            checked={eldercare=== 'Regular/frequent'}
-            onChange={(e) => setEldercare(e.target.value)}
-          />
-     Regular/frequent
-              </label>
+  <div>Elder care</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Emergencies"
+        checked={eldercare === 'Emergencies'}
+        onChange={(e) => setEldercare(e.target.value)}
+      />
+      Emergencies
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Occasional"
+        checked={eldercare === 'Occasional'}
+        onChange={(e) => setEldercare(e.target.value)}
+      />
+      Occasional
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Regular/frequent"
+        checked={eldercare === 'Regular/frequent'}
+        onChange={(e) => setEldercare(e.target.value)}
+      />
+      Regular/frequent
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
 
-             </RadioGroupWrapper>
            
            
 
             {/*petcare*/}
             
             <RadioGroupWrapper>
-           <FormLabel>Pet care</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="	Emergencies"
-            checked={ petcare==='	Emergencies' }           
-            onChange={(e) => setPetCare(e.target.value)}
-          />
-   	Emergencies
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Occasional"
-            checked={ petcare==='Occasional ' }
-            onChange={(e) => setPetCare(e.target.value)}
-          />
-    Occasional
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Regular/frequent"
-            checked={petcare=== 'Regular/frequent'}
-            onChange={(e) => setPetCare(e.target.value)}
-          />
-     Regular/frequent
-              </label>
+  <div>Pet care</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Emergencies"
+        checked={petcare === 'Emergencies'}
+        onChange={(e) => setPetCare(e.target.value)}
+      />
+      Emergencies
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Occasional"
+        checked={petcare === 'Occasional'}
+        onChange={(e) => setPetCare(e.target.value)}
+      />
+      Occasional
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Regular/frequent"
+        checked={petcare === 'Regular/frequent'}
+        onChange={(e) => setPetCare(e.target.value)}
+      />
+      Regular/frequent
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
 
-            </RadioGroupWrapper>
             
            {/*repair*/}
-            
             <RadioGroupWrapper>
-           <FormLabel>Repair advice</FormLabel>
-        <label>
-          <input
-            type="radio"
-            value="	Home repair"
-            checked={ repair==='	Home repair' }           
-            onChange={(e) => setRepairAdvice(e.target.value)}
-          />
-   	Home repair
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Auto repair"
-            checked={ repair==='Auto repair ' }
-            onChange={(e) => setRepairAdvice(e.target.value)}
-          />
-   Auto repair
-        </label>
-        
+  <div>Repair advice</div>
+  <RadioContainer>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Home repair"
+        checked={repair === 'Home repair'}
+        onChange={(e) => setRepairAdvice(e.target.value)}
+      />
+      Home repair
+    </RadioLabel>
+    <RadioLabel>
+      <RadioButton
+        type="radio"
+        value="Auto repair"
+        checked={repair === 'Auto repair'}
+        onChange={(e) => setRepairAdvice(e.target.value)}
+      />
+      Auto repair
+    </RadioLabel>
+  </RadioContainer>
+</RadioGroupWrapper>
 
-            </RadioGroupWrapper>
-            
            
            {/* ... other form content ... */}
           <br />
           
-            
-    <Button 
-       onClick={handleSubmit}
-      variant="contained"
-      color="primary"
-      component={Link} // Use the Link component
-      to ="/profile"// Specify the target URL
-    >
-     submit
-    </Button>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+  <Button
+    onClick={handleSubmit}
+    variant="contained"
+    color="primary"
+    component={Link}
+    to="/profile"
+  >
+    Submit
+  </Button>
+</div>
+
             </FormWrapper>
         </FormColumn>
       </FormContainer>

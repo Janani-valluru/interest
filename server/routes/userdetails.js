@@ -19,7 +19,20 @@ router.get('/', async (req, res) => {
       walkingSpeed: 1,
       runningSpeed: 1,
       swimmingLocation: 1,
-      moviegenre: 1
+      moviegenre: 1,
+      childcare: 1,
+        eldercare:1,
+        dogwalking:1,
+      errands:1,
+       
+        arts:1,
+        Dinnerparties:1,
+        television:1,
+        restaurant:1,
+        happyhour:1,
+        coffee:1,
+      repair:1,
+        rides:1,
     })
 
      .sort({ _id: -1 }) // Sort by _id in descending order (most recent first)
