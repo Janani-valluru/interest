@@ -25,6 +25,11 @@ mongoose.connect('mongodb+srv://jananishetty24:jananishetty24@cluster0.usv8xva.m
 
 
 
+
+
+
+// API endpoint to store user preferences
+
 // Use the routes
 
 app.use('/api/user-data', userInterestRoutes);
@@ -37,5 +42,5 @@ app.listen(PORT, () => {
 
 app.get('/userinterests', (req, res) => {
   userinterest.find()
-  .then()
+    .then()
 })

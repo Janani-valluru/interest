@@ -11,6 +11,11 @@ import {
   
 } from '@mui/material';
 
+
+
+import { Link } from 'react-router-dom';
+import { Button} from '../../globalStyles';
+
 import { makeStyles } from '@mui/styles';
 
 
@@ -151,7 +156,13 @@ function UserDetails() {
             
           )}
 
-          </CardContent>
+        </CardContent>
+        <Button>
+					<Link to="matches">
+					Get Started
+					</Link>
+					
+				</Button>
         
       </Card>
     </Container>

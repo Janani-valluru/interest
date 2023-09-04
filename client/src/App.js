@@ -19,6 +19,7 @@ function App() {
 				<Route path="/signup" exact component={SignUp} />
 				<Route path="/Interest" exact component={Interest} />
 				<Route path="/profile" exact component={Profiledisplay} />
+				
 			</Switch>
 			 
 			<Footer />
