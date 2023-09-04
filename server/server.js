@@ -16,8 +16,9 @@ const app = express();
 app.use(cors(
   {
     origin: ["https://interest-frontend-dp0i9w7gx-janani-valluru.vercel.app"],
-    methods:["POST","GET"],
-    credentials:true
+    methods: ["POST", "GET"],
+    credentials: true
+  }
 ));
 app.use(bodyParser.json());
 
