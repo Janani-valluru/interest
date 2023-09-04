@@ -38,7 +38,7 @@ function UserDetails() {
 
   useEffect(() => {
     // Fetch user data from the server
-    axios.get('https://interest-backend.onrender.com/api/user-details') // Update the route to match your Express route
+    axios.get('https://interest-backend.onrender.com/user-details') // Update the route to match your Express route
       .then((response) => {
         setUserData(response.data);
         setLoading(false);
