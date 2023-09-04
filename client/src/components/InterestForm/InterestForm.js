@@ -174,7 +174,7 @@ axios.defaults.withCredentials=true;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://interest-macrs1c8d-janani-valluru.vercel.app/user-data', {
+      await axios.post('https://interest-3rfwof397-janani-valluru.vercel.app/api/user-data', {
         firstname,
         lastname,
         email,
