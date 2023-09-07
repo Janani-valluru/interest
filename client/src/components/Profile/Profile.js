@@ -155,6 +155,7 @@ function UserDetails() {
             <Typography>No user data available.</Typography>
             
           )}
+          
 
         </CardContent>
         <Button>
