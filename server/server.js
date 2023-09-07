@@ -13,7 +13,9 @@ const userDetailsRoutes = require('./routes/userdetails');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors(
+ 
+));
 app.use(bodyParser.json());
 
 // Connect to MongoDB Atlas
@@ -23,6 +25,7 @@ mongoose.connect('mongodb+srv://jananishetty24:jananishetty24@cluster0.usv8xva.m
   useUnifiedTopology: true,
 
 });
+
 
 // Use the routes
 
@@ -38,5 +41,5 @@ app.listen(PORT, () => {
 
 app.get('/userinterests', (req, res) => {
   userinterest.find()
-  .then()
+    .then()
 })
