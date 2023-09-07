@@ -28,6 +28,8 @@ const userInterestSchema = new mongoose.Schema({
   coffee: [String],
   repair: [String],
   rides: [String],
+      childcare:[String],
+      eldercare:[String]
 
 });
 
