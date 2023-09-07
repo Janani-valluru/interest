@@ -17,7 +17,9 @@ const userInterestSchema = new mongoose.Schema({
   walkingSpeed: String,
         runningSpeed : String,
         swimmingLocation : String,
-  moviegenre: String,
+      moviegenre: String,
+      childcare: String,
+  eldercare:String,
         
         errands: [String],  // Define as an array of strings if it's supposed to be an array
   arts: [String],
@@ -28,7 +30,8 @@ const userInterestSchema = new mongoose.Schema({
   coffee: [String],
   repair: [String],
   rides: [String],
-
+childcare: [String],
+  eldercare:[String],
 });
 
 module.exports = mongoose.model('UserInterest', userInterestSchema);

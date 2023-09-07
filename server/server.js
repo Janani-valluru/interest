@@ -18,12 +18,11 @@ app.use(bodyParser.json());
 
 // Connect to MongoDB Atlas
 mongoose.connect('mongodb+srv://jananishetty24:jananishetty24@cluster0.usv8xva.mongodb.net/', {
+
   useNewUrlParser: true,
   useUnifiedTopology: true,
+
 });
-
-
-
 
 // Use the routes
 
@@ -32,7 +31,9 @@ app.use('/api/user-details', userDetailsRoutes);
 // Start the Express server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
+
   console.log(`Server is running on port ${PORT}`);
+
 });
 
 app.get('/userinterests', (req, res) => {
