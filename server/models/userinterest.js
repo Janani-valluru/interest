@@ -30,8 +30,14 @@ const userInterestSchema = new mongoose.Schema({
   coffee: [String],
   repair: [String],
   rides: [String],
+<<<<<<< HEAD
 childcare: [String],
   eldercare:[String],
+=======
+      childcare:[String],
+      eldercare:[String]
+
+>>>>>>> a8b12ad3c86faddc7336531cfee495ae15f981fe
 });
 
 module.exports = mongoose.model('UserInterest', userInterestSchema);
