@@ -137,11 +137,11 @@ function UserDetails() {
                   <Typography>Arts: {userData.arts}</Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <Typography  variant="subtitle1">Dinner Parties: {userData.dinnerParties}</Typography></Grid>
+                  <Typography  variant="subtitle1">Dinner Parties: {userData.Dinnerparties}</Typography></Grid>
                 <Grid item xs={12} md={6}>
                   <Typography>Televison: {userData.television}</Typography></Grid>
                 <Grid item xs={12} md={6}>
-                  <Typography>Restaurants: {userData.restaurants}</Typography></Grid>
+                  <Typography>Restaurants: {userData.restaurant}</Typography></Grid>
                 <Grid item xs={12} md={6}>
                   <Typography>Happy Hour: {userData.happyhour}</Typography></Grid>
                 <Grid item xs={12} md={6}>
